@@ -1,0 +1,32 @@
+<h1>New Review for <%= @movie.name %></h1>
+
+<%= form_with(model: [@movie, @review]) do |form| %>
+  <% if @review.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :reviewer_name, "Your Name (optional)" %><br>
+    <%= form.text_field :reviewer_name %>
+  </div>
+
+  <h3>Rate the Categories:</h3>
+  <%= form.fields_for :review_ratings do |rr_form| %>
+    <div>
+      <%= rr_form.hidden_field :category_id %>
+      <%= rr_form.label :score, rr_form.object.category.name %><br>
+      <%= rr_form.select :score, options_for_select(1..5), { include_blank: rr_form.object.category.required? ? nil : 'Not Rated' } %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit "Submit Review" %>
+  </div>
+<% end %>

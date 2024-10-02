@@ -1,0 +1,15 @@
+performance:
+  name: 'Performance'
+  required: true
+
+special_effects:
+  name: 'Special Effects'
+  required: true
+
+storytelling:
+  name: 'Storytelling'
+  required: true
+
+optional_category:
+  name: 'Music'
+  required: false

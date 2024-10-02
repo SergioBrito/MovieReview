@@ -1,0 +1,7 @@
+movie_one:
+  name: 'Inception'
+  description: 'A mind-bending thriller by Christopher Nolan.'
+
+movie_two:
+  name: 'The Matrix'
+  description: 'A computer hacker learns about the true nature of reality.'

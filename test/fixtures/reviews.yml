@@ -1,0 +1,11 @@
+review_one:
+  movie: movie_one
+  reviewer_name: 'Alice'
+
+review_two:
+  movie: movie_one
+  reviewer_name: 'Bob'
+
+review_three:
+  movie: movie_two
+  reviewer_name: ''  # Anonymous reviewer

@@ -1,0 +1,52 @@
+# Review One (Alice's Review)
+rr_one_performance:
+  review: review_one
+  category: performance
+  score: 4
+
+rr_one_special_effects:
+  review: review_one
+  category: special_effects
+  score: 5
+
+rr_one_storytelling:
+  review: review_one
+  category: storytelling
+  score: 4
+
+# Review Two (Bob's Review)
+rr_two_performance:
+  review: review_two
+  category: performance
+  score: 3
+
+rr_two_special_effects:
+  review: review_two
+  category: special_effects
+  score: 4
+
+rr_two_storytelling:
+  review: review_two
+  category: storytelling
+  score: 5
+
+# Review Three (Anonymous Review with Optional Category)
+rr_three_performance:
+  review: review_three
+  category: performance
+  score: 5
+
+rr_three_special_effects:
+  review: review_three
+  category: special_effects
+  score: 5
+
+rr_three_storytelling:
+  review: review_three
+  category: storytelling
+  score: 5
+
+rr_three_music:
+  review: review_three
+  category: optional_category
+  score: 4

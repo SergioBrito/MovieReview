@@ -1,0 +1,35 @@
+<h1><%= @movie.name %></h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+<h3>Average Ratings:</h3>
+<% if @movie.reviews.any? %>
+  <% category_averages = Category.all.map do |category|
+    avg_score = @movie.reviews.joins(:review_ratings)
+                 .where(review_ratings: { category_id: category.id })
+                 .average('review_ratings.score')
+    [category.name, avg_score&.round(2)]
+  end.to_h %>
+
+  <ul>
+    <% category_averages.each do |name, avg| %>
+      <li>
+        <strong><%= name %>:</strong> <%= avg || 'No ratings yet' %>
+      </li>
+    <% end %>
+  </ul>
+
+  <p>
+    <strong>Overall Average Score:</strong>
+    <%= (@movie.reviews.map(&:total_score).sum / @movie.reviews.size).round(2) %>
+  </p>
+<% else %>
+  <p>No reviews yet.</p>
+<% end %>
+
+<%= link_to "Add a Review", new_movie_review_path(@movie) %> |
+<%= link_to "View All Reviews", movie_reviews_path(@movie) %> |
+<%= link_to "Back to Movies", movies_path %>

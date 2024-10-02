@@ -1,0 +1,26 @@
+<h1>Reviews for <%= @movie.name %></h1>
+
+<% @reviews.each do |review| %>
+  <div>
+    <p>
+      <strong>Reviewer:</strong>
+      <%= review.reviewer_name.present? ? review.reviewer_name : "Anonymous" %>
+    </p>
+    <h3>Ratings:</h3>
+    <ul>
+      <% review.review_ratings.each do |rating| %>
+        <li>
+          <strong><%= rating.category.name %>:</strong> <%= rating.score %>
+        </li>
+      <% end %>
+    </ul>
+    <p>
+      <strong>Total Score:</strong> <%= review.total_score %>
+    </p>
+    <%= link_to "View Review", movie_review_path(@movie, review) %>
+    <hr>
+  </div>
+<% end %>
+
+<%= link_to "Add a Review", new_movie_review_path(@movie) %> |
+<%= link_to "Back to Movie", movie_path(@movie) %>
